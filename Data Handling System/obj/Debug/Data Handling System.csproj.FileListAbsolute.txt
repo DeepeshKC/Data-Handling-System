@@ -8,3 +8,13 @@ F:\Study\The British College\new assg\Data Handling System\Data Handling System\
 F:\Study\The British College\new assg\Data Handling System\Data Handling System\obj\Debug\Data Handling System.csproj.CoreCompileInputs.cache
 F:\Study\The British College\new assg\Data Handling System\Data Handling System\obj\Debug\Data Handling System.exe
 F:\Study\The British College\new assg\Data Handling System\Data Handling System\obj\Debug\Data Handling System.pdb
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data Handling System.csprojAssemblyReference.cache
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data_Handling_System.Form1.resources
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data_Handling_System.Properties.Resources.resources
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data Handling System.csproj.GenerateResource.cache
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data Handling System.csproj.CoreCompileInputs.cache
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data Handling System.exe
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data Handling System.pdb
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\bin\Debug\Data Handling System.exe.config
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\bin\Debug\Data Handling System.exe
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\bin\Debug\Data Handling System.pdb
