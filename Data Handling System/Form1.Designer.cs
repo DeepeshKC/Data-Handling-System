@@ -40,6 +40,19 @@
             this.lblInterval = new System.Windows.Forms.Label();
             this.lblStartTime = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbltotaldistance = new System.Windows.Forms.Label();
+            this.lblavgspeed = new System.Windows.Forms.Label();
+            this.lblmaxspeed = new System.Windows.Forms.Label();
+            this.lblminspeed = new System.Windows.Forms.Label();
+            this.lblavgheart = new System.Windows.Forms.Label();
+            this.lblmaxheart = new System.Windows.Forms.Label();
+            this.lblminheart = new System.Windows.Forms.Label();
+            this.lblavgpower = new System.Windows.Forms.Label();
+            this.lblmaxpower = new System.Windows.Forms.Label();
+            this.lblavgalt = new System.Windows.Forms.Label();
+            this.lblmaxalt = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +63,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,7 +78,7 @@
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.openFileToolStripMenuItem.Text = "Open File";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
@@ -76,79 +89,218 @@
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
-            this.lblWeight.Location = new System.Drawing.Point(29, 211);
+            this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeight.Location = new System.Drawing.Point(27, 243);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(41, 13);
+            this.lblWeight.Size = new System.Drawing.Size(69, 24);
             this.lblWeight.TabIndex = 13;
             this.lblWeight.Text = "Weight";
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(29, 154);
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(29, 179);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(30, 13);
+            this.lblDate.Size = new System.Drawing.Size(48, 24);
             this.lblDate.TabIndex = 12;
             this.lblDate.Text = "Date";
             // 
             // lblLength
             // 
             this.lblLength.AutoSize = true;
-            this.lblLength.Location = new System.Drawing.Point(29, 179);
+            this.lblLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLength.Location = new System.Drawing.Point(31, 203);
             this.lblLength.Name = "lblLength";
-            this.lblLength.Size = new System.Drawing.Size(40, 13);
+            this.lblLength.Size = new System.Drawing.Size(68, 24);
             this.lblLength.TabIndex = 10;
             this.lblLength.Text = "Length";
             // 
             // lblSMode
             // 
             this.lblSMode.AutoSize = true;
-            this.lblSMode.Location = new System.Drawing.Point(29, 131);
+            this.lblSMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSMode.Location = new System.Drawing.Point(27, 146);
             this.lblSMode.Name = "lblSMode";
-            this.lblSMode.Size = new System.Drawing.Size(41, 13);
+            this.lblSMode.Size = new System.Drawing.Size(71, 24);
             this.lblSMode.TabIndex = 11;
             this.lblSMode.Text = "SMode";
             // 
             // lblMonitor
             // 
             this.lblMonitor.AutoSize = true;
-            this.lblMonitor.Location = new System.Drawing.Point(29, 107);
+            this.lblMonitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonitor.Location = new System.Drawing.Point(29, 112);
             this.lblMonitor.Name = "lblMonitor";
-            this.lblMonitor.Size = new System.Drawing.Size(42, 13);
+            this.lblMonitor.Size = new System.Drawing.Size(73, 24);
             this.lblMonitor.TabIndex = 9;
             this.lblMonitor.Text = "Monitor";
             // 
             // lblInterval
             // 
             this.lblInterval.AutoSize = true;
-            this.lblInterval.Location = new System.Drawing.Point(32, 84);
+            this.lblInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInterval.Location = new System.Drawing.Point(31, 88);
             this.lblInterval.Name = "lblInterval";
-            this.lblInterval.Size = new System.Drawing.Size(42, 13);
+            this.lblInterval.Size = new System.Drawing.Size(69, 24);
             this.lblInterval.TabIndex = 8;
             this.lblInterval.Text = "Interval";
             // 
             // lblStartTime
             // 
             this.lblStartTime.AutoSize = true;
+            this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStartTime.Location = new System.Drawing.Point(29, 53);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(55, 13);
+            this.lblStartTime.Size = new System.Drawing.Size(94, 24);
             this.lblStartTime.TabIndex = 7;
             this.lblStartTime.Text = "Start Time";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(322, 27);
+            this.dataGridView1.Location = new System.Drawing.Point(435, 52);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(447, 410);
+            this.dataGridView1.Size = new System.Drawing.Size(564, 410);
             this.dataGridView1.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(430, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 25);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Your Data:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(-3, 282);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(323, 31);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Your Summarized Data:";
+            // 
+            // lbltotaldistance
+            // 
+            this.lbltotaldistance.AutoSize = true;
+            this.lbltotaldistance.Location = new System.Drawing.Point(28, 337);
+            this.lbltotaldistance.Name = "lbltotaldistance";
+            this.lbltotaldistance.Size = new System.Drawing.Size(122, 13);
+            this.lbltotaldistance.TabIndex = 18;
+            this.lbltotaldistance.Text = "Total Distance Covered:";
+            // 
+            // lblavgspeed
+            // 
+            this.lblavgspeed.AutoSize = true;
+            this.lblavgspeed.Location = new System.Drawing.Point(30, 377);
+            this.lblavgspeed.Name = "lblavgspeed";
+            this.lblavgspeed.Size = new System.Drawing.Size(84, 13);
+            this.lblavgspeed.TabIndex = 19;
+            this.lblavgspeed.Text = "Average Speed:";
+            // 
+            // lblmaxspeed
+            // 
+            this.lblmaxspeed.AutoSize = true;
+            this.lblmaxspeed.Location = new System.Drawing.Point(31, 413);
+            this.lblmaxspeed.Name = "lblmaxspeed";
+            this.lblmaxspeed.Size = new System.Drawing.Size(88, 13);
+            this.lblmaxspeed.TabIndex = 20;
+            this.lblmaxspeed.Text = "Maximum Speed:";
+            // 
+            // lblminspeed
+            // 
+            this.lblminspeed.AutoSize = true;
+            this.lblminspeed.Location = new System.Drawing.Point(33, 455);
+            this.lblminspeed.Name = "lblminspeed";
+            this.lblminspeed.Size = new System.Drawing.Size(85, 13);
+            this.lblminspeed.TabIndex = 21;
+            this.lblminspeed.Text = "Minimum Speed:";
+            // 
+            // lblavgheart
+            // 
+            this.lblavgheart.AutoSize = true;
+            this.lblavgheart.Location = new System.Drawing.Point(33, 491);
+            this.lblavgheart.Name = "lblavgheart";
+            this.lblavgheart.Size = new System.Drawing.Size(105, 13);
+            this.lblavgheart.TabIndex = 22;
+            this.lblavgheart.Text = "Average Heart Rate:";
+            // 
+            // lblmaxheart
+            // 
+            this.lblmaxheart.AutoSize = true;
+            this.lblmaxheart.Location = new System.Drawing.Point(33, 521);
+            this.lblmaxheart.Name = "lblmaxheart";
+            this.lblmaxheart.Size = new System.Drawing.Size(109, 13);
+            this.lblmaxheart.TabIndex = 23;
+            this.lblmaxheart.Text = "Maximum Heart Rate:";
+            // 
+            // lblminheart
+            // 
+            this.lblminheart.AutoSize = true;
+            this.lblminheart.Location = new System.Drawing.Point(32, 553);
+            this.lblminheart.Name = "lblminheart";
+            this.lblminheart.Size = new System.Drawing.Size(106, 13);
+            this.lblminheart.TabIndex = 24;
+            this.lblminheart.Text = "Minimum Heart Rate:";
+            // 
+            // lblavgpower
+            // 
+            this.lblavgpower.AutoSize = true;
+            this.lblavgpower.Location = new System.Drawing.Point(32, 586);
+            this.lblavgpower.Name = "lblavgpower";
+            this.lblavgpower.Size = new System.Drawing.Size(83, 13);
+            this.lblavgpower.TabIndex = 25;
+            this.lblavgpower.Text = "Average Power:";
+            // 
+            // lblmaxpower
+            // 
+            this.lblmaxpower.AutoSize = true;
+            this.lblmaxpower.Location = new System.Drawing.Point(34, 613);
+            this.lblmaxpower.Name = "lblmaxpower";
+            this.lblmaxpower.Size = new System.Drawing.Size(87, 13);
+            this.lblmaxpower.TabIndex = 26;
+            this.lblmaxpower.Text = "Maximum Power:";
+            // 
+            // lblavgalt
+            // 
+            this.lblavgalt.AutoSize = true;
+            this.lblavgalt.Location = new System.Drawing.Point(33, 641);
+            this.lblavgalt.Name = "lblavgalt";
+            this.lblavgalt.Size = new System.Drawing.Size(88, 13);
+            this.lblavgalt.TabIndex = 27;
+            this.lblavgalt.Text = "Average Altitude:";
+            // 
+            // lblmaxalt
+            // 
+            this.lblmaxalt.AutoSize = true;
+            this.lblmaxalt.Location = new System.Drawing.Point(30, 673);
+            this.lblmaxalt.Name = "lblmaxalt";
+            this.lblmaxalt.Size = new System.Drawing.Size(92, 13);
+            this.lblmaxalt.TabIndex = 28;
+            this.lblmaxalt.Text = "Maximum Altitude:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1011, 722);
+            this.Controls.Add(this.lblmaxalt);
+            this.Controls.Add(this.lblavgalt);
+            this.Controls.Add(this.lblmaxpower);
+            this.Controls.Add(this.lblavgpower);
+            this.Controls.Add(this.lblminheart);
+            this.Controls.Add(this.lblmaxheart);
+            this.Controls.Add(this.lblavgheart);
+            this.Controls.Add(this.lblminspeed);
+            this.Controls.Add(this.lblmaxspeed);
+            this.Controls.Add(this.lblavgspeed);
+            this.Controls.Add(this.lbltotaldistance);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblDate);
@@ -161,6 +313,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -183,6 +336,19 @@
         private System.Windows.Forms.Label lblInterval;
         private System.Windows.Forms.Label lblStartTime;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbltotaldistance;
+        private System.Windows.Forms.Label lblavgspeed;
+        private System.Windows.Forms.Label lblmaxspeed;
+        private System.Windows.Forms.Label lblminspeed;
+        private System.Windows.Forms.Label lblavgheart;
+        private System.Windows.Forms.Label lblmaxheart;
+        private System.Windows.Forms.Label lblminheart;
+        private System.Windows.Forms.Label lblavgpower;
+        private System.Windows.Forms.Label lblmaxpower;
+        private System.Windows.Forms.Label lblavgalt;
+        private System.Windows.Forms.Label lblmaxalt;
     }
 }
 

@@ -21,6 +21,7 @@ namespace Data_Handling_System
             InitGrid();
         }
 
+
         private static string[] SplitString(string text)
         {
             var splitString = new string[] {"[Params]","[Note]","[IntTimes]", "[IntNotes]",
@@ -65,7 +66,7 @@ namespace Data_Handling_System
                     }
                 }
 
-
+                // label for the header data 
                 lblStartTime.Text = lblStartTime.Text + "= " + _param["StartTime"];
                 lblInterval.Text = lblInterval.Text + "= " + _param["Interval"];
                 lblMonitor.Text = lblMonitor.Text + "= " + _param["Monitor"];
@@ -101,7 +102,34 @@ namespace Data_Handling_System
                 _hrData.Add("altitude", altitude);
                 _hrData.Add("heartRate", heartRate);
                 _hrData.Add("watt", watt);
-                
+
+                string totalDistanceCovered = Summary.FindSum(_hrData["cadence"]).ToString();
+                string averageSpeed = Summary.FindAverage(_hrData["cadence"]).ToString();
+                string maxSpeed = Summary.FindMax(_hrData["cadence"]).ToString();
+
+                string averageHeartRate = Summary.FindAverage(_hrData["heartRate"]).ToString();
+                string maximumHeartRate = Summary.FindMax(_hrData["heartRate"]).ToString();
+                string minHeartRate = Summary.FindMin(_hrData["heartRate"]).ToString();
+
+                string averagePower = Summary.FindAverage(_hrData["watt"]).ToString();
+                string maxPower = Summary.FindMax(_hrData["watt"]).ToString();
+
+                string averageAltitude = Summary.FindAverage(_hrData["altitude"]).ToString();
+                string maximumAltitude = Summary.FindAverage(_hrData["altitude"]).ToString();
+
+                //labels for summarized data
+                lbltotaldistance.Text = "Total Distance Covered: " + totalDistanceCovered;
+                lblavgspeed.Text = "Average Speed: " + averageSpeed;
+                lblmaxspeed.Text = "Maximum Speed: " + maxSpeed;
+              //  lblminspeed.Text = "Minimum Speed: " + min
+                lblavgheart.Text = "Average Heart Rate: " + averageHeartRate;
+                lblmaxheart.Text = "Maximim Heart Rate: " + maximumHeartRate;
+                lblminheart.Text = "Minimum Heart Rate: " + minHeartRate;
+                lblavgpower.Text = " Average Power: " + averagePower;
+                lblmaxpower.Text = "Maximum Power: " + maxPower;
+                lblavgalt.Text = "Average Altitude: " + averageAltitude;
+                lblmaxalt.Text = "Maximum Altitude: " + maximumAltitude;
+
             }
         }
 
@@ -112,6 +140,11 @@ namespace Data_Handling_System
             dataGridView1.Columns[1].Name = "Altitude";
             dataGridView1.Columns[2].Name = "Heart rate";
             dataGridView1.Columns[3].Name = "Power in watts";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
