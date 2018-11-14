@@ -38,12 +38,14 @@ namespace Data_Handling_System
         }
         public static double FindAverage(List<string> value)
         {
-            double average = 0;
+            int average = 0;
+
             foreach (var data in value)
             {
-                average += average + Convert.ToDouble(data);
+                average += Convert.ToInt16(data);
             }
-            return average;
+
+            return average / value.Count;
         }
     }
 }

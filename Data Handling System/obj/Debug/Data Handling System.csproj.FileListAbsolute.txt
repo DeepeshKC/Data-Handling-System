@@ -18,3 +18,6 @@ F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling Syste
 F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\bin\Debug\Data Handling System.exe.config
 F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\bin\Debug\Data Handling System.exe
 F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\bin\Debug\Data Handling System.pdb
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\bin\Debug\ZedGraph.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data_Handling_System.Graph.resources
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data Handling System.csproj.CopyComplete

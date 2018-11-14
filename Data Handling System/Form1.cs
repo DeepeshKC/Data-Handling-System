@@ -106,6 +106,7 @@ namespace Data_Handling_System
                 string totalDistanceCovered = Summary.FindSum(_hrData["cadence"]).ToString();
                 string averageSpeed = Summary.FindAverage(_hrData["cadence"]).ToString();
                 string maxSpeed = Summary.FindMax(_hrData["cadence"]).ToString();
+                string minSpeed = Summary.FindMin(_hrData["cadence"]).ToString();
 
                 string averageHeartRate = Summary.FindAverage(_hrData["heartRate"]).ToString();
                 string maximumHeartRate = Summary.FindMax(_hrData["heartRate"]).ToString();
@@ -121,7 +122,7 @@ namespace Data_Handling_System
                 lbltotaldistance.Text = "Total Distance Covered: " + totalDistanceCovered;
                 lblavgspeed.Text = "Average Speed: " + averageSpeed;
                 lblmaxspeed.Text = "Maximum Speed: " + maxSpeed;
-              //  lblminspeed.Text = "Minimum Speed: " + min
+                lblminspeed.Text = "Minimum Speed: " + minSpeed;
                 lblavgheart.Text = "Average Heart Rate: " + averageHeartRate;
                 lblmaxheart.Text = "Maximim Heart Rate: " + maximumHeartRate;
                 lblminheart.Text = "Minimum Heart Rate: " + minHeartRate;
@@ -145,6 +146,19 @@ namespace Data_Handling_System
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void viewGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_hrData.Count < 1)
+            {
+                MessageBox.Show("Please select a file first");
+            }
+            else
+            {
+                Graph._hrData = _hrData;
+                new Graph().Show();
+            }
         }
     }
 }

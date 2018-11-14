@@ -53,6 +53,7 @@
             this.lblmaxpower = new System.Windows.Forms.Label();
             this.lblavgalt = new System.Windows.Forms.Label();
             this.lblmaxalt = new System.Windows.Forms.Label();
+            this.viewGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +71,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openFileToolStripMenuItem});
+            this.openFileToolStripMenuItem,
+            this.viewGraphToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -78,7 +80,7 @@
             // openFileToolStripMenuItem
             // 
             this.openFileToolStripMenuItem.Name = "openFileToolStripMenuItem";
-            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.openFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openFileToolStripMenuItem.Text = "Open File";
             this.openFileToolStripMenuItem.Click += new System.EventHandler(this.openFileToolStripMenuItem_Click);
             // 
@@ -90,71 +92,71 @@
             // 
             this.lblWeight.AutoSize = true;
             this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeight.Location = new System.Drawing.Point(27, 243);
+            this.lblWeight.Location = new System.Drawing.Point(26, 265);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(69, 24);
+            this.lblWeight.Size = new System.Drawing.Size(74, 24);
             this.lblWeight.TabIndex = 13;
-            this.lblWeight.Text = "Weight";
+            this.lblWeight.Text = "Weight:";
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(29, 179);
+            this.lblDate.Location = new System.Drawing.Point(27, 194);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(48, 24);
+            this.lblDate.Size = new System.Drawing.Size(53, 24);
             this.lblDate.TabIndex = 12;
-            this.lblDate.Text = "Date";
+            this.lblDate.Text = "Date:";
             // 
             // lblLength
             // 
             this.lblLength.AutoSize = true;
             this.lblLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLength.Location = new System.Drawing.Point(31, 203);
+            this.lblLength.Location = new System.Drawing.Point(27, 227);
             this.lblLength.Name = "lblLength";
-            this.lblLength.Size = new System.Drawing.Size(68, 24);
+            this.lblLength.Size = new System.Drawing.Size(73, 24);
             this.lblLength.TabIndex = 10;
-            this.lblLength.Text = "Length";
+            this.lblLength.Text = "Length:";
             // 
             // lblSMode
             // 
             this.lblSMode.AutoSize = true;
             this.lblSMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSMode.Location = new System.Drawing.Point(27, 146);
+            this.lblSMode.Location = new System.Drawing.Point(27, 121);
             this.lblSMode.Name = "lblSMode";
-            this.lblSMode.Size = new System.Drawing.Size(71, 24);
+            this.lblSMode.Size = new System.Drawing.Size(84, 24);
             this.lblSMode.TabIndex = 11;
-            this.lblSMode.Text = "SMode";
+            this.lblSMode.Text = "SMODE:";
             // 
             // lblMonitor
             // 
             this.lblMonitor.AutoSize = true;
             this.lblMonitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonitor.Location = new System.Drawing.Point(29, 112);
+            this.lblMonitor.Location = new System.Drawing.Point(27, 86);
             this.lblMonitor.Name = "lblMonitor";
-            this.lblMonitor.Size = new System.Drawing.Size(73, 24);
+            this.lblMonitor.Size = new System.Drawing.Size(78, 24);
             this.lblMonitor.TabIndex = 9;
-            this.lblMonitor.Text = "Monitor";
+            this.lblMonitor.Text = "Monitor:";
             // 
             // lblInterval
             // 
             this.lblInterval.AutoSize = true;
             this.lblInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInterval.Location = new System.Drawing.Point(31, 88);
+            this.lblInterval.Location = new System.Drawing.Point(27, 158);
             this.lblInterval.Name = "lblInterval";
-            this.lblInterval.Size = new System.Drawing.Size(69, 24);
+            this.lblInterval.Size = new System.Drawing.Size(74, 24);
             this.lblInterval.TabIndex = 8;
-            this.lblInterval.Text = "Interval";
+            this.lblInterval.Text = "Interval:";
             // 
             // lblStartTime
             // 
             this.lblStartTime.AutoSize = true;
             this.lblStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartTime.Location = new System.Drawing.Point(29, 53);
+            this.lblStartTime.Location = new System.Drawing.Point(27, 52);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(94, 24);
+            this.lblStartTime.Size = new System.Drawing.Size(99, 24);
             this.lblStartTime.TabIndex = 7;
-            this.lblStartTime.Text = "Start Time";
+            this.lblStartTime.Text = "Start Time:";
             // 
             // dataGridView1
             // 
@@ -178,7 +180,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-3, 282);
+            this.label2.Location = new System.Drawing.Point(-6, 289);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(323, 31);
             this.label2.TabIndex = 16;
@@ -187,107 +189,125 @@
             // lbltotaldistance
             // 
             this.lbltotaldistance.AutoSize = true;
-            this.lbltotaldistance.Location = new System.Drawing.Point(28, 337);
+            this.lbltotaldistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotaldistance.Location = new System.Drawing.Point(26, 338);
             this.lbltotaldistance.Name = "lbltotaldistance";
-            this.lbltotaldistance.Size = new System.Drawing.Size(122, 13);
+            this.lbltotaldistance.Size = new System.Drawing.Size(243, 25);
             this.lbltotaldistance.TabIndex = 18;
             this.lbltotaldistance.Text = "Total Distance Covered:";
             // 
             // lblavgspeed
             // 
             this.lblavgspeed.AutoSize = true;
-            this.lblavgspeed.Location = new System.Drawing.Point(30, 377);
+            this.lblavgspeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblavgspeed.Location = new System.Drawing.Point(26, 375);
             this.lblavgspeed.Name = "lblavgspeed";
-            this.lblavgspeed.Size = new System.Drawing.Size(84, 13);
+            this.lblavgspeed.Size = new System.Drawing.Size(166, 25);
             this.lblavgspeed.TabIndex = 19;
             this.lblavgspeed.Text = "Average Speed:";
             // 
             // lblmaxspeed
             // 
             this.lblmaxspeed.AutoSize = true;
-            this.lblmaxspeed.Location = new System.Drawing.Point(31, 413);
+            this.lblmaxspeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmaxspeed.Location = new System.Drawing.Point(26, 413);
             this.lblmaxspeed.Name = "lblmaxspeed";
-            this.lblmaxspeed.Size = new System.Drawing.Size(88, 13);
+            this.lblmaxspeed.Size = new System.Drawing.Size(178, 25);
             this.lblmaxspeed.TabIndex = 20;
             this.lblmaxspeed.Text = "Maximum Speed:";
             // 
             // lblminspeed
             // 
             this.lblminspeed.AutoSize = true;
-            this.lblminspeed.Location = new System.Drawing.Point(33, 455);
+            this.lblminspeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblminspeed.Location = new System.Drawing.Point(26, 455);
             this.lblminspeed.Name = "lblminspeed";
-            this.lblminspeed.Size = new System.Drawing.Size(85, 13);
+            this.lblminspeed.Size = new System.Drawing.Size(172, 25);
             this.lblminspeed.TabIndex = 21;
             this.lblminspeed.Text = "Minimum Speed:";
             // 
             // lblavgheart
             // 
             this.lblavgheart.AutoSize = true;
-            this.lblavgheart.Location = new System.Drawing.Point(33, 491);
+            this.lblavgheart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblavgheart.Location = new System.Drawing.Point(26, 491);
             this.lblavgheart.Name = "lblavgheart";
-            this.lblavgheart.Size = new System.Drawing.Size(105, 13);
+            this.lblavgheart.Size = new System.Drawing.Size(207, 25);
             this.lblavgheart.TabIndex = 22;
             this.lblavgheart.Text = "Average Heart Rate:";
             // 
             // lblmaxheart
             // 
             this.lblmaxheart.AutoSize = true;
-            this.lblmaxheart.Location = new System.Drawing.Point(33, 521);
+            this.lblmaxheart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmaxheart.Location = new System.Drawing.Point(26, 530);
             this.lblmaxheart.Name = "lblmaxheart";
-            this.lblmaxheart.Size = new System.Drawing.Size(109, 13);
+            this.lblmaxheart.Size = new System.Drawing.Size(219, 25);
             this.lblmaxheart.TabIndex = 23;
             this.lblmaxheart.Text = "Maximum Heart Rate:";
             // 
             // lblminheart
             // 
             this.lblminheart.AutoSize = true;
-            this.lblminheart.Location = new System.Drawing.Point(32, 553);
+            this.lblminheart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblminheart.Location = new System.Drawing.Point(26, 567);
             this.lblminheart.Name = "lblminheart";
-            this.lblminheart.Size = new System.Drawing.Size(106, 13);
+            this.lblminheart.Size = new System.Drawing.Size(213, 25);
             this.lblminheart.TabIndex = 24;
             this.lblminheart.Text = "Minimum Heart Rate:";
             // 
             // lblavgpower
             // 
             this.lblavgpower.AutoSize = true;
-            this.lblavgpower.Location = new System.Drawing.Point(32, 586);
+            this.lblavgpower.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblavgpower.Location = new System.Drawing.Point(26, 603);
             this.lblavgpower.Name = "lblavgpower";
-            this.lblavgpower.Size = new System.Drawing.Size(83, 13);
+            this.lblavgpower.Size = new System.Drawing.Size(164, 25);
             this.lblavgpower.TabIndex = 25;
             this.lblavgpower.Text = "Average Power:";
             // 
             // lblmaxpower
             // 
             this.lblmaxpower.AutoSize = true;
-            this.lblmaxpower.Location = new System.Drawing.Point(34, 613);
+            this.lblmaxpower.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmaxpower.Location = new System.Drawing.Point(26, 637);
             this.lblmaxpower.Name = "lblmaxpower";
-            this.lblmaxpower.Size = new System.Drawing.Size(87, 13);
+            this.lblmaxpower.Size = new System.Drawing.Size(176, 25);
             this.lblmaxpower.TabIndex = 26;
             this.lblmaxpower.Text = "Maximum Power:";
             // 
             // lblavgalt
             // 
             this.lblavgalt.AutoSize = true;
-            this.lblavgalt.Location = new System.Drawing.Point(33, 641);
+            this.lblavgalt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblavgalt.Location = new System.Drawing.Point(26, 676);
             this.lblavgalt.Name = "lblavgalt";
-            this.lblavgalt.Size = new System.Drawing.Size(88, 13);
+            this.lblavgalt.Size = new System.Drawing.Size(176, 25);
             this.lblavgalt.TabIndex = 27;
             this.lblavgalt.Text = "Average Altitude:";
             // 
             // lblmaxalt
             // 
             this.lblmaxalt.AutoSize = true;
-            this.lblmaxalt.Location = new System.Drawing.Point(30, 673);
+            this.lblmaxalt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmaxalt.Location = new System.Drawing.Point(26, 715);
             this.lblmaxalt.Name = "lblmaxalt";
-            this.lblmaxalt.Size = new System.Drawing.Size(92, 13);
+            this.lblmaxalt.Size = new System.Drawing.Size(188, 25);
             this.lblmaxalt.TabIndex = 28;
             this.lblmaxalt.Text = "Maximum Altitude:";
+            // 
+            // viewGraphToolStripMenuItem
+            // 
+            this.viewGraphToolStripMenuItem.Name = "viewGraphToolStripMenuItem";
+            this.viewGraphToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewGraphToolStripMenuItem.Text = "View Graph";
+            this.viewGraphToolStripMenuItem.Click += new System.EventHandler(this.viewGraphToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 722);
+            this.ClientSize = new System.Drawing.Size(1011, 749);
             this.Controls.Add(this.lblmaxalt);
             this.Controls.Add(this.lblavgalt);
             this.Controls.Add(this.lblmaxpower);
@@ -349,6 +369,7 @@
         private System.Windows.Forms.Label lblmaxpower;
         private System.Windows.Forms.Label lblavgalt;
         private System.Windows.Forms.Label lblmaxalt;
+        private System.Windows.Forms.ToolStripMenuItem viewGraphToolStripMenuItem;
     }
 }
 
