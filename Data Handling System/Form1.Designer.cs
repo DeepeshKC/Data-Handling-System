@@ -53,7 +53,9 @@
             this.lblmaxpower = new System.Windows.Forms.Label();
             this.lblavgalt = new System.Windows.Forms.Label();
             this.lblmaxalt = new System.Windows.Forms.Label();
-            this.viewGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewGraphToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewIndividualGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +63,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
@@ -71,8 +74,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openFileToolStripMenuItem,
-            this.viewGraphToolStripMenuItem});
+            this.openFileToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -296,12 +298,28 @@
             this.lblmaxalt.TabIndex = 28;
             this.lblmaxalt.Text = "Maximum Altitude:";
             // 
-            // viewGraphToolStripMenuItem
+            // viewToolStripMenuItem
             // 
-            this.viewGraphToolStripMenuItem.Name = "viewGraphToolStripMenuItem";
-            this.viewGraphToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewGraphToolStripMenuItem.Text = "View Graph";
-            this.viewGraphToolStripMenuItem.Click += new System.EventHandler(this.viewGraphToolStripMenuItem_Click);
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewGraphToolStripMenuItem1,
+            this.viewIndividualGraphToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // viewGraphToolStripMenuItem1
+            // 
+            this.viewGraphToolStripMenuItem1.Name = "viewGraphToolStripMenuItem1";
+            this.viewGraphToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.viewGraphToolStripMenuItem1.Text = "View Graph";
+            this.viewGraphToolStripMenuItem1.Click += new System.EventHandler(this.viewGraphToolStripMenuItem1_Click);
+            // 
+            // viewIndividualGraphToolStripMenuItem
+            // 
+            this.viewIndividualGraphToolStripMenuItem.Name = "viewIndividualGraphToolStripMenuItem";
+            this.viewIndividualGraphToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.viewIndividualGraphToolStripMenuItem.Text = "View Individual Graph";
+            this.viewIndividualGraphToolStripMenuItem.Click += new System.EventHandler(this.viewIndividualGraphToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -369,7 +387,9 @@
         private System.Windows.Forms.Label lblmaxpower;
         private System.Windows.Forms.Label lblavgalt;
         private System.Windows.Forms.Label lblmaxalt;
-        private System.Windows.Forms.ToolStripMenuItem viewGraphToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewGraphToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewIndividualGraphToolStripMenuItem;
     }
 }
 

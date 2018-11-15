@@ -148,7 +148,9 @@ namespace Data_Handling_System
 
         }
 
-        private void viewGraphToolStripMenuItem_Click(object sender, EventArgs e)
+      
+    
+        private void viewGraphToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (_hrData.Count < 1)
             {
@@ -159,6 +161,20 @@ namespace Data_Handling_System
                 Graph._hrData = _hrData;
                 new Graph().Show();
             }
+        }
+
+        private void viewIndividualGraphToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_hrData.Count < 1)
+            {
+                MessageBox.Show("Please select a file first");
+            }
+            else
+            {
+                IndividualGraph._hrData = _hrData;
+                new IndividualGraph().Show();
+            }
+
         }
     }
 }
