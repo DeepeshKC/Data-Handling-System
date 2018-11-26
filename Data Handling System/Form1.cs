@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Globalization;
+
 namespace Data_Handling_System
 {
     public partial class Form1 : Form
@@ -15,11 +17,12 @@ namespace Data_Handling_System
         private Dictionary<string, List<string>> _hrData = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _param = new Dictionary<string, string>();
         private int count = 0;
+
         public Form1()
         {
             InitializeComponent();
             InitGrid();
-            //radioButton1.Checked = true;
+            this.CenterToScreen();
         }
 
 
@@ -60,6 +63,7 @@ namespace Data_Handling_System
 
         private void loadData()
         {
+            Cursor.Current = Cursors.WaitCursor;
             _param = new Dictionary<string, string>();
             _hrData = new Dictionary<string, List<string>>();
             string text = File.ReadAllText(openFileDialog1.FileName);
@@ -75,13 +79,15 @@ namespace Data_Handling_System
                     _param.Add(parts[0], parts[1]);
                 }
             }
+            DateTime date1 = new DateTime(Convert.ToInt64(_param["Date"]));
+            CultureInfo ci = CultureInfo.InvariantCulture;
 
             // label for the header data 
             lblStartTime.Text = "Start Time" + _param["StartTime"];
             lblInterval.Text = "Interval" + _param["Interval"];
             lblMonitor.Text = "Monitor" + _param["Monitor"];
             lblSMode.Text = "S mode" + _param["SMode"];
-            lblDate.Text = "Date" + _param["Date"];
+            lblDate.Text = "Date" + date1.ToString("yyyy-mm-dd", ci);
             lblLength.Text = "Length" + _param["Length"];
             lblWeight.Text = "Weight" + _param["Weight"];
 
@@ -90,22 +96,31 @@ namespace Data_Handling_System
             List<string> heartRate = new List<string>();
             List<string> watt = new List<string>();
             List<string> speed = new List<string>();
+            List<string> time = new List<string>();
 
             //adding data for datagrid
             var splittedHrData = SplitStringByEnter(splittedString[11]);
+            DateTime dateTime = DateTime.Parse(_param["StartTime"]);
+
+            int tmp = 0;
+
             foreach (var data in splittedHrData)
             {
+                tmp++;
                 var value = SplitStringBySpace(data);
 
                 if (value.Length >= 5)
-                {
+                { 
                     cadence.Add(value[0]);
                     altitude.Add(value[1]);
                     heartRate.Add(value[2]);
                     watt.Add(value[3]);
                     speed.Add(value[4]);
+                   
 
-                    string[] hrData = new string[] { value[0], value[1], value[2], value[3], value[4] };
+                    if (tmp > 2) dateTime = dateTime.AddSeconds(Convert.ToInt32(_param["Interval"]));
+
+                    string[] hrData = new string[] { value[0], value[1], value[2], value[3], value[4], dateTime.TimeOfDay.ToString() };
                     dataGridView1.Rows.Add(hrData);
                 }
             }
@@ -115,16 +130,18 @@ namespace Data_Handling_System
             _hrData.Add("HeartRate", heartRate);
             _hrData.Add("Watt", watt);
             _hrData.Add("Speed", speed);
+            
         }
 
         private void InitGrid()
         {
-            dataGridView1.ColumnCount = 5;
+            dataGridView1.ColumnCount = 6;
             dataGridView1.Columns[0].Name = "Cadence";
             dataGridView1.Columns[1].Name = "Altitude";
             dataGridView1.Columns[2].Name = "Heart rate";
             dataGridView1.Columns[3].Name = "Power in watts";
             dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
+            dataGridView1.Columns[5].Name = "Time";
         }
 
         private void Form1_Load(object sender, EventArgs e)
