@@ -35,43 +35,37 @@ namespace Data_Handling_System
             myPane.XAxis.Title = "Time in second";
             myPane.YAxis.Title = "Data";
 
-            /* myPane.XAxis.Scale.MajorStep = 50;
-             myPane.YAxis.Scale.Mag = 0;
-             myPane.XAxis.Scale.Max = 1000;*/
 
             PointPairList cadencePairList = new PointPairList();
             PointPairList altitudePairList = new PointPairList();
             PointPairList heartPairList = new PointPairList();
             PointPairList powerPairList = new PointPairList();
 
-            //int[] teamAData = buildTeamAData();
-            //int[] teamBData = buildTeamBData();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    teamAPairList.Add(i, teamAData[i]);
-            //    teamBPairList.Add(i, teamBData[i]);
-            //}
-
-            for (int i = 0; i < _hrData["cadence"].Count; i++)
+          
+            for (int i = 0; i < _hrData["Cadence"].Count; i++)
             {
-                cadencePairList.Add(i, Convert.ToInt16(_hrData["cadence"][i]));
+                cadencePairList.Add(i, Convert.ToInt16(_hrData["Cadence"][i]));
             }
 
-            for (int i = 0; i < _hrData["altitude"].Count; i++)
+            for (int i = 0; i < _hrData["Altitude"].Count; i++)
             {
-                altitudePairList.Add(i, Convert.ToInt16(_hrData["altitude"][i]));
+                altitudePairList.Add(i, Convert.ToInt16(_hrData["Altitude"][i]));
             }
 
-            for (int i = 0; i < _hrData["heartRate"].Count; i++)
+            for (int i = 0; i < _hrData["HeartRate"].Count; i++)
             {
-                heartPairList.Add(i, Convert.ToInt16(_hrData["heartRate"][i]));
+                heartPairList.Add(i, Convert.ToInt16(_hrData["HeartRate"][i]));
             }
 
-            for (int i = 0; i < _hrData["watt"].Count; i++)
+            for (int i = 0; i < _hrData["Watt"].Count; i++)
             {
-                powerPairList.Add(i, Convert.ToInt16(_hrData["watt"][i]));
+                powerPairList.Add(i, Convert.ToInt16(_hrData["Watt"][i]));
             }
 
+            for (int i = 0; i < _hrData["Speed"].Count; i++)
+            {
+                powerPairList.Add(i, Convert.ToInt16(_hrData["Speed"][i]));
+            }
             LineItem cadence = myPane.AddCurve("Cadence",
                    cadencePairList, Color.Red, SymbolType.None);
 
@@ -83,6 +77,9 @@ namespace Data_Handling_System
 
             LineItem power = myPane.AddCurve("Power",
                   powerPairList, Color.Orange, SymbolType.None);
+
+            LineItem speed = myPane.AddCurve("Speed",
+                 powerPairList, Color.Orange, SymbolType.None);
 
             zedGraphControl1.AxisChange();
         }

@@ -14,11 +14,12 @@ namespace Data_Handling_System
     {
         private Dictionary<string, List<string>> _hrData = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _param = new Dictionary<string, string>();
-
+        private int count = 0;
         public Form1()
         {
             InitializeComponent();
             InitGrid();
+            //radioButton1.Checked = true;
         }
 
 
@@ -50,97 +51,80 @@ namespace Data_Handling_System
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                _param = new Dictionary<string, string>();
-                _hrData = new Dictionary<string, List<string>>();
-                string text = File.ReadAllText(openFileDialog1.FileName);
-                var splittedString = SplitString(text);
 
-                var splittedParamsData = SplitStringByEnter(splittedString[0]);
 
-                foreach (var data in splittedParamsData)
-                {
-                    if (data != "\r")
-                    {
-                        string[] parts = data.Split(new[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
-                        _param.Add(parts[0], parts[1]);
-                    }
-                }
-
-                // label for the header data 
-                lblStartTime.Text = lblStartTime.Text + "= " + _param["StartTime"];
-                lblInterval.Text = lblInterval.Text + "= " + _param["Interval"];
-                lblMonitor.Text = lblMonitor.Text + "= " + _param["Monitor"];
-                lblSMode.Text = lblSMode.Text + "= " + _param["SMode"];
-                lblDate.Text = lblDate.Text + "= " + _param["Date"];
-                lblLength.Text = lblLength.Text + "= " + _param["Length"];
-                lblWeight.Text = lblWeight.Text + "= " + _param["Weight"];
-
-                List<string> cadence = new List<string>();
-                List<string> altitude = new List<string>();
-                List<string> heartRate = new List<string>();
-                List<string> watt = new List<string>();
-
-                //adding data for datagrid
-                var splittedHrData = SplitStringByEnter(splittedString[11]);
-                foreach (var data in splittedHrData)
-                {
-                    var value = SplitStringBySpace(data);
-
-                    if (value.Length >= 4)
-                    {
-                        cadence.Add(value[0]);
-                        altitude.Add(value[1]);
-                        heartRate.Add(value[2]);
-                        watt.Add(value[3]);
-
-                        string[] hrData = new string[] { value[0], value[1], value[2], value[3] };
-                        dataGridView1.Rows.Add(hrData);
-                    }
-                }
-
-                _hrData.Add("cadence", cadence);
-                _hrData.Add("altitude", altitude);
-                _hrData.Add("heartRate", heartRate);
-                _hrData.Add("watt", watt);
-
-                string totalDistanceCovered = Summary.FindSum(_hrData["cadence"]).ToString();
-                string averageSpeed = Summary.FindAverage(_hrData["cadence"]).ToString();
-                string maxSpeed = Summary.FindMax(_hrData["cadence"]).ToString();
-                string minSpeed = Summary.FindMin(_hrData["cadence"]).ToString();
-
-                string averageHeartRate = Summary.FindAverage(_hrData["heartRate"]).ToString();
-                string maximumHeartRate = Summary.FindMax(_hrData["heartRate"]).ToString();
-                string minHeartRate = Summary.FindMin(_hrData["heartRate"]).ToString();
-
-                string averagePower = Summary.FindAverage(_hrData["watt"]).ToString();
-                string maxPower = Summary.FindMax(_hrData["watt"]).ToString();
-
-                string averageAltitude = Summary.FindAverage(_hrData["altitude"]).ToString();
-                string maximumAltitude = Summary.FindAverage(_hrData["altitude"]).ToString();
-
-                //labels for summarized data
-                lbltotaldistance.Text = "Total Distance Covered: " + totalDistanceCovered;
-                lblavgspeed.Text = "Average Speed: " + averageSpeed;
-                lblmaxspeed.Text = "Maximum Speed: " + maxSpeed;
-                lblminspeed.Text = "Minimum Speed: " + minSpeed;
-                lblavgheart.Text = "Average Heart Rate: " + averageHeartRate;
-                lblmaxheart.Text = "Maximim Heart Rate: " + maximumHeartRate;
-                lblminheart.Text = "Minimum Heart Rate: " + minHeartRate;
-                lblavgpower.Text = " Average Power: " + averagePower;
-                lblmaxpower.Text = "Maximum Power: " + maxPower;
-                lblavgalt.Text = "Average Altitude: " + averageAltitude;
-                lblmaxalt.Text = "Maximum Altitude: " + maximumAltitude;
+                loadData();
 
             }
         }
 
+        private void loadData()
+        {
+            _param = new Dictionary<string, string>();
+            _hrData = new Dictionary<string, List<string>>();
+            string text = File.ReadAllText(openFileDialog1.FileName);
+            var splittedString = SplitString(text);
+
+            var splittedParamsData = SplitStringByEnter(splittedString[0]);
+
+            foreach (var data in splittedParamsData)
+            {
+                if (data != "\r")
+                {
+                    string[] parts = data.Split(new[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
+                    _param.Add(parts[0], parts[1]);
+                }
+            }
+
+            // label for the header data 
+            lblStartTime.Text = "Start Time" + _param["StartTime"];
+            lblInterval.Text = "Interval" + _param["Interval"];
+            lblMonitor.Text = "Monitor" + _param["Monitor"];
+            lblSMode.Text = "S mode" + _param["SMode"];
+            lblDate.Text = "Date" + _param["Date"];
+            lblLength.Text = "Length" + _param["Length"];
+            lblWeight.Text = "Weight" + _param["Weight"];
+
+            List<string> cadence = new List<string>();
+            List<string> altitude = new List<string>();
+            List<string> heartRate = new List<string>();
+            List<string> watt = new List<string>();
+            List<string> speed = new List<string>();
+
+            //adding data for datagrid
+            var splittedHrData = SplitStringByEnter(splittedString[11]);
+            foreach (var data in splittedHrData)
+            {
+                var value = SplitStringBySpace(data);
+
+                if (value.Length >= 5)
+                {
+                    cadence.Add(value[0]);
+                    altitude.Add(value[1]);
+                    heartRate.Add(value[2]);
+                    watt.Add(value[3]);
+                    speed.Add(value[4]);
+
+                    string[] hrData = new string[] { value[0], value[1], value[2], value[3], value[4] };
+                    dataGridView1.Rows.Add(hrData);
+                }
+            }
+
+            _hrData.Add("Cadence", cadence);
+            _hrData.Add("Altitude", altitude);
+            _hrData.Add("HeartRate", heartRate);
+            _hrData.Add("Watt", watt);
+            _hrData.Add("Speed", speed);
+        }
+
         private void InitGrid()
         {
-            dataGridView1.ColumnCount = 4;
+            dataGridView1.ColumnCount = 5;
             dataGridView1.Columns[0].Name = "Cadence";
             dataGridView1.Columns[1].Name = "Altitude";
             dataGridView1.Columns[2].Name = "Heart rate";
             dataGridView1.Columns[3].Name = "Power in watts";
+            dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -148,8 +132,8 @@ namespace Data_Handling_System
 
         }
 
-      
-    
+
+        //to view overall graph
         private void viewGraphToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (_hrData.Count < 1)
@@ -163,6 +147,7 @@ namespace Data_Handling_System
             }
         }
 
+        //to view individual graphs
         private void viewIndividualGraphToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_hrData.Count < 1)
@@ -175,6 +160,96 @@ namespace Data_Handling_System
                 new IndividualGraph().Show();
             }
 
+        }
+
+        //to view summary data
+        private void viewSummaryDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_hrData.Count < 1)
+            {
+                MessageBox.Show("Please select a file first");
+            }
+            else
+            {
+                SummaryView._hrData = _hrData;
+                new SummaryView().Show();
+            }
+        }
+
+        //to change speed unit and return the value in table
+        private void CalculateSpeed(string type)
+        {
+            if (_hrData.Count > 0)
+            {
+                List<string> data = new List<string>();
+                if (type == "mile")
+                {
+                    dataGridView1.Columns[4].Name = "Speed(Mile/hr)";
+
+                    data.Clear();
+                    for (int i = 0; i < _hrData["Cadence"].Count; i++)
+                    {
+                        string temp = (Convert.ToDouble(_hrData["Speed"][i]) * 1.60934).ToString();
+                        data.Add(temp);
+                    }
+
+                    _hrData["Speed"] = data;
+
+                    dataGridView1.Rows.Clear();
+                    for (int i = 0; i < _hrData["Cadence"].Count; i++)
+                    {
+                        string[] hrData = new string[] { _hrData["Cadence"][i], _hrData["Altitude"][i], _hrData["HeartRate"][i], _hrData["Watt"][i], _hrData["Speed"][i] };
+                        dataGridView1.Rows.Add(hrData);
+                    }
+                }
+                else
+                {
+                    dataGridView1.Columns[4].Name = "Speed(km/hr)";
+
+                    data.Clear();
+                    for (int i = 0; i < _hrData["Cadence"].Count; i++)
+                    {
+                        string temp = (Convert.ToDouble(_hrData["Speed"][i]) / 1.60934).ToString();
+                        data.Add(temp);
+                    }
+
+                    _hrData["Speed"] = data;
+
+                    dataGridView1.Rows.Clear();
+                    for (int i = 0; i < _hrData["Cadence"].Count; i++)
+                    {
+                        string[] hrData = new string[] { _hrData["Cadence"][i], _hrData["Altitude"][i], _hrData["HeartRate"][i], _hrData["Watt"][i], _hrData["Speed"][i] };
+                        dataGridView1.Rows.Add(hrData);
+                    }
+                }
+            }
+        }
+
+        //button to select km/hr
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (_hrData.Count < 1)
+            {
+                MessageBox.Show("Please select a file first");
+            }
+            else
+            {
+                CalculateSpeed("km");
+            }
+        }
+
+        //button to select miles/hr
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (_hrData.Count < 1)
+            {
+                MessageBox.Show("Please select a file first");
+            }
+            else
+            {
+                count++;
+                if (count > 1) CalculateSpeed("mile");
+            }
         }
     }
 }
