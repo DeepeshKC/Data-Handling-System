@@ -12,15 +12,15 @@ using ZedGraph;
 namespace Data_Handling_System
 {
     public partial class IndividualGraph : Form
-    
+
     {
         public static Dictionary<string, List<string>> _hrData;
 
         public IndividualGraph()
-        { 
+        {
             InitializeComponent();
-            this. CenterToScreen();
-             plotGraph();
+            this.CenterToScreen();
+            plotGraph();
         }
 
         private void plotGraph()
@@ -59,7 +59,7 @@ namespace Data_Handling_System
             PointPairList heartPairList = new PointPairList();
             PointPairList powerPairList = new PointPairList();
             PointPairList speedPairList = new PointPairList();
-            
+
 
 
             for (int i = 0; i < _hrData["Cadence"].Count; i++)
@@ -89,7 +89,7 @@ namespace Data_Handling_System
 
             LineItem cadence = cadencePane.AddCurve("Cadence",
                    cadencePairList, Color.Red, SymbolType.None);
-            
+
             LineItem altitude = altitudePane.AddCurve("Altitude",
                   altitudePairList, Color.Blue, SymbolType.None);
 
@@ -133,6 +133,16 @@ namespace Data_Handling_System
         }
 
         private void zedGraphControlAltitude_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void zedGraphControlSpeed_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void zedGraphControl1_Load(object sender, EventArgs e)
         {
 
         }

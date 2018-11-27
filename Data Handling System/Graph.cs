@@ -41,7 +41,7 @@ namespace Data_Handling_System
             PointPairList heartPairList = new PointPairList();
             PointPairList powerPairList = new PointPairList();
 
-          
+
             for (int i = 0; i < _hrData["Cadence"].Count; i++)
             {
                 cadencePairList.Add(i, Convert.ToInt16(_hrData["Cadence"][i]));

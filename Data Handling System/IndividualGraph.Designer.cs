@@ -64,7 +64,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 1397);
+            this.label5.Location = new System.Drawing.Point(12, 1379);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 24);
             this.label5.TabIndex = 12;
@@ -73,11 +73,12 @@
             // zedGraphControlSpeed
             // 
             this.zedGraphControlSpeed.IsShowPointValues = false;
-            this.zedGraphControlSpeed.Location = new System.Drawing.Point(18, 1424);
+            this.zedGraphControlSpeed.Location = new System.Drawing.Point(16, 1406);
             this.zedGraphControlSpeed.Name = "zedGraphControlSpeed";
             this.zedGraphControlSpeed.PointValueFormat = "G";
-            this.zedGraphControlSpeed.Size = new System.Drawing.Size(935, 283);
+            this.zedGraphControlSpeed.Size = new System.Drawing.Size(937, 379);
             this.zedGraphControlSpeed.TabIndex = 11;
+            this.zedGraphControlSpeed.Load += new System.EventHandler(this.zedGraphControlSpeed_Load);
             // 
             // label4
             // 
