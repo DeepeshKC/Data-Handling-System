@@ -44,7 +44,7 @@ namespace Data_Handling_System
 
             for (int i = 0; i < _hrData["Cadence"].Count; i++)
             {
-                cadencePairList.Add(i, Convert.ToInt16(_hrData["Cadence"][i]));
+                cadencePairList.Add(i, Convert.ToDouble(_hrData["Cadence"][i]));
             }
 
             for (int i = 0; i < _hrData["Altitude"].Count; i++)
@@ -64,7 +64,7 @@ namespace Data_Handling_System
 
             for (int i = 0; i < _hrData["Speed"].Count; i++)
             {
-                powerPairList.Add(i, Convert.ToInt16(_hrData["Speed"][i]));
+                powerPairList.Add(i, Convert.ToDouble(_hrData["Speed"][i]));
             }
             LineItem cadence = myPane.AddCurve("Cadence",
                    cadencePairList, Color.Red, SymbolType.None);

@@ -84,7 +84,7 @@ namespace Data_Handling_System
 
             for (int i = 0; i < _hrData["Speed"].Count; i++)
             {
-                speedPairList.Add(i, Convert.ToInt16(_hrData["Speed"][i]));
+                speedPairList.Add(i, Convert.ToDouble(_hrData["Speed"][i]));
             }
 
             LineItem cadence = cadencePane.AddCurve("Cadence",

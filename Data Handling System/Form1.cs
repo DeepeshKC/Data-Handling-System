@@ -19,12 +19,9 @@ namespace Data_Handling_System
         private Dictionary<string, string> _param = new Dictionary<string, string>();
         private int count = 0;
         private string endTime;
-        string smode = "";
-        int heart1 = 0;
-        int speed1 = 0;
-        int cadencce = 0;
-        int altitude1 = 0;
-        int power1 = 0;
+      
+
+        private List<int> smode = new List<int>();
 
 
         public Form1()
@@ -63,12 +60,8 @@ namespace Data_Handling_System
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-
-
                 loadData();
-                SMODE();
-
-            }
+             }
         }
 
         private void loadData()
@@ -101,6 +94,12 @@ namespace Data_Handling_System
             lblLength.Text = "Length" + "= " + _param["Length"];
             lblWeight.Text = "Weight" + "= " + Regex.Replace(_param["Weight"], @"\t|\n|\r", "") + " kg";
 
+            var sMode = _param["SMode"];
+            for (int i = 0; i < sMode.Length; i++)
+            {
+                smode.Add((int)Char.GetNumericValue(_param["SMode"][i]));
+            }
+
             List<string> cadence = new List<string>();
             List<string> altitude = new List<string>();
             List<string> heartRate = new List<string>();
@@ -127,37 +126,13 @@ namespace Data_Handling_System
                     watt.Add(value[3]);
                     speed.Add(value[4]);
 
-                    if (cadencce == 1)
-                    {
-                        value[0] = null;
-                    }
-
-                    if (altitude1 == 1)
-                    {
-                        value[1] = null;
-                    }
-
-                    if (heart1 == 0)
-                    {
-                        value[2] = null;
-                    }
-
-                    if (power1 == 1)
-                    {
-                        value[3] = null;
-                    }
-                    if (speed1 == 1)
-                    {
-                        value[4] = null;
-                    }
-
-
                     if (tmp > 2) dateTime = dateTime.AddSeconds(Convert.ToInt32(_param["Interval"]));
                     endTime = dateTime.TimeOfDay.ToString();
 
                     string[] hrData = new string[] { value[0], value[1], value[2], value[3], value[4], dateTime.TimeOfDay.ToString() };
                     dataGridView1.Rows.Add(hrData);
 
+                   
                 }
             }
 
@@ -166,6 +141,27 @@ namespace Data_Handling_System
             _hrData.Add("HeartRate", heartRate);
             _hrData.Add("Watt", watt);
             _hrData.Add("Speed", speed);
+
+            if (smode[0] == 0)
+            {
+                dataGridView1.Columns[0].Visible = false;
+            }
+            else if (smode[1] == 0)
+            {
+                dataGridView1.Columns[1].Visible = false;
+            }
+            else if (smode[2] == 0)
+            {
+                dataGridView1.Columns[2].Visible = false;
+            }
+            else if (smode[3] == 0)
+            {
+                dataGridView1.Columns[3].Visible = false;
+            }
+            else if (smode[4] == 0)
+            {
+                dataGridView1.Columns[4].Visible = false;
+            }
 
         }
 
@@ -320,17 +316,7 @@ namespace Data_Handling_System
                 CalculateSpeed("km");
             }
         }
-        public void SMODE()
-        {
-            smode = _param["SMode"];
-            heart1 = int.Parse(smode.Substring(0, 1));
-            speed1 = int.Parse(smode.Substring(1, 1));
-            cadencce = int.Parse(smode.Substring(2, 1));
-            altitude1 = int.Parse(smode.Substring(3, 1));
-            power1 = int.Parse(smode.Substring(4, 1));
-            Console.WriteLine(heart1 + " " + power1 + " " + speed1 + " " + cadencce + " " + altitude1);
-        }
-
+     
         //button to select miles/hr
         private void button2_Click(object sender, EventArgs e)
         {
