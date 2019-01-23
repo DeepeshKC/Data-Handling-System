@@ -165,6 +165,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "IndividualGraph";
             this.Text = "IndividualGraph";
+            this.Load += new System.EventHandler(this.IndividualGraph_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

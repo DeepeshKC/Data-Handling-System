@@ -83,8 +83,8 @@ namespace Data_Handling_System
                 }
             }
             DateTime date1 = new DateTime(Convert.ToInt64(_param["Date"]));
-            CultureInfo ci = CultureInfo.InvariantCulture;
-
+          
+             
             // label for the header data 
             lblStartTime.Text = "Start Time" + "= " + _param["StartTime"];
             lblInterval.Text = "Interval" + "= " + Regex.Replace(_param["Interval"], @"\t|\n|\r", "") + " sec";

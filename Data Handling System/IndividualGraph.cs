@@ -146,5 +146,10 @@ namespace Data_Handling_System
         {
 
         }
+
+        private void IndividualGraph_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

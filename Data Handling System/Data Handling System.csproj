@@ -50,6 +50,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileCompare.Designer.cs">
+      <DependentUpon>FileCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableFiller.cs" />
+    <Compile Include="FileConvertor.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +85,9 @@
     <Compile Include="SummaryView.Designer.cs">
       <DependentUpon>SummaryView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FileCompare.resx">
+      <DependentUpon>FileCompare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
