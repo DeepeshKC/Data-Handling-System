@@ -9,7 +9,9 @@ namespace Data_Handling_System
 {
     class TableFiller
     {
-        public string[] FillDataInSumaryTable(Dictionary<string, object> _hrData, Dictionary<string, string> _param, string endTime)
+        
+        public string[] FillDataInSummaryTable(Dictionary<string, object>_hrData, string endTime, Dictionary<string,string>_param = null)
+
         {
             double startDate = TimeSpan.Parse(_param["StartTime"]).TotalSeconds;
             double endDate = TimeSpan.Parse(endTime).TotalSeconds;
@@ -29,7 +31,7 @@ namespace Data_Handling_System
             string averageAltitude = Summary.FindAverageAltitude(_hrData["altitude"] as List<string>).ToString();
   
 
-            string[] summarydata = new string[] { totalDistanceCovered, averageSpeed, maxSpeed, averageHeartRate, maximumHeartRate, minHeartRate, averagePower, maxPower, averageAltitude, maximumAltitude };
+            string[] summarydata = new string[] { totalDistanceCovered, averageSpeed, maxSpeed, averageHeartRate, maximumHeartRate, minHeartRate, averagePower, maxPower, averageAltitude };
 
             return summarydata;
         }

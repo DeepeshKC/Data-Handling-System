@@ -17,6 +17,7 @@ namespace Data_Handling_System
     {
         private Dictionary<string, List<string>> _hrData = new Dictionary<string, List<string>>();
         private Dictionary<string, string> _param = new Dictionary<string, string>();
+        private Dictionary<string, object> hrData = new Dictionary<string, object>();
         private int count = 0;
         private string endTime;
       
@@ -29,6 +30,7 @@ namespace Data_Handling_System
             InitializeComponent();
             InitGrid();
             this.CenterToScreen();
+            dataGridView1.MultiSelect = true;
         }
 
 
@@ -60,8 +62,155 @@ namespace Data_Handling_System
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                loadData();
-             }
+                if (result == DialogResult.OK)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    string text = File.ReadAllText(openFileDialog1.FileName);
+                    //Dictionary<string, object> hrData = new TableFiller().FillTable(text, dataGridView1);
+                    hrData = new TableFiller().FillTable(text, dataGridView1);
+                    _hrData = hrData.ToDictionary(k => k.Key, k => k.Value as List<string>);
+
+                    var param = hrData["params"] as Dictionary<string, string>;
+                    var sMode = param["SMode"];
+                    for (int i = 0; i < sMode.Length; i++)
+                    {
+                        smode.Add((int)Char.GetNumericValue(param["SMode"][i]));
+                    }
+
+                    if (smode[0] == 0)
+                    {
+                        dataGridView1.Columns[0].Visible = false;
+                    }
+                    else if (smode[1] == 0)
+                    {
+                        dataGridView1.Columns[1].Visible = false;
+                    }
+                    else if (smode[2] == 0)
+                    {
+                        dataGridView1.Columns[2].Visible = false;
+                    }
+                    else if (smode[3] == 0)
+                    {
+                        dataGridView1.Columns[3].Visible = false;
+                    }
+                    else if (smode[4] == 0)
+                    {
+                        dataGridView1.Columns[4].Visible = false;
+                    }
+
+                    //dataGridView2.Rows.Clear();
+                   // dataGridView2.Rows.Add(new TableFiller().FillDataInSummaryTable(_hrData, _hrData["params"] as Dictionary<string, string>, _hrData["endTime"] as string));
+
+
+
+
+
+
+
+
+                    //_param = new Dictionary<string, string>();
+                    //_hrData = new Dictionary<string, List<string>>();
+                    //string text = File.ReadAllText(openFileDialog1.FileName);
+                    //var splittedString = c.SplitString(text);
+
+                    //var splittedParamsData = c.SplitStringByEnter(splittedString[0]);
+
+                    //foreach (var data in splittedParamsData)
+                    //{
+                    //  if (data != "\r")
+                    //  {
+                    //    string[] parts = data.Split(new[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
+                    //    _param.Add(parts[0], parts[1]);
+                    //  }
+                    //}
+
+
+                    //lblStartTime.Text = "Start Time" + "= " + _param["StartTime"];
+                    //lblInterval.Text = "Interval" + "= " + Regex.Replace(_param["Interval"], @"\t|\n|\r", "") + " sec";
+                    //lblMonitor.Text = "Monitor" + "= " + _param["Monitor"];
+                    //lblSMode.Text = "SMode" + "= " + _param["SMode"];
+                    //lblDate.Text = "Date" + "= " + Summary.ConvertToDate(_param["Date"]);
+                    //lblLength.Text = "Length" + "= " + _param["Length"];
+                    //lblWeight.Text = "Weight" + "= " + Regex.Replace(_param["Weight"], @"\t|\n|\r", "") + " kg";
+
+                    //var sMode = _param["SMode"];
+                    //for (int i = 0; i < sMode.Length; i++)
+                    //{
+                    //  smode.Add((int)Char.GetNumericValue(_param["SMode"][i]));
+                    //}
+
+                    //List<string> cadence = new List<string>();
+                    //List<string> altitude = new List<string>();
+                    //List<string> heartRate = new List<string>();
+                    //List<string> watt = new List<string>();
+                    //List<string> speed = new List<string>();
+                    //List<string> time = new List<string>();
+
+                    ////adding data for datagrid
+                    //var splittedHrData = c.SplitStringByEnter(splittedString[11]);
+                    //DateTime dateTime = DateTime.Parse(_param["StartTime"]);
+
+                    //int temp = 0;
+                    //foreach (var data in splittedHrData)
+                    //{
+                    //  temp++;
+                    //  var value = c.SplitStringBySpace(data);
+
+                    //  if (value.Length >= 5)
+                    //  {
+                    //    cadence.Add(value[0]);
+                    //    altitude.Add(value[1]);
+                    //    heartRate.Add(value[2]);
+                    //    watt.Add(value[3]);
+                    //    speed.Add(value[4]);
+
+                    //    if (temp > 2) dateTime = dateTime.AddSeconds(Convert.ToInt32(_param["Interval"]));
+                    //    endTime = dateTime.TimeOfDay.ToString();
+
+                    //    List<string> hrData = new List<string>();
+                    //    hrData.Add(value[0]);
+                    //    hrData.Add(value[1]);
+                    //    hrData.Add(value[2]);
+                    //    hrData.Add(value[3]);
+                    //    hrData.Add(value[4]);
+                    //    hrData.Add(dateTime.TimeOfDay.ToString());
+
+                    //    dataGridView1.Rows.Add(hrData.ToArray());
+                    //  }
+                    //}
+
+                    //_hrData.Add("cadence", cadence);
+                    //_hrData.Add("altitude", altitude);
+                    //_hrData.Add("heartRate", heartRate);
+                    //_hrData.Add("watt", watt);
+                    //_hrData.Add("speed", speed);
+
+                    //if (smode[0] == 0)
+                    //{
+                    //  dataGridView1.Columns[0].Visible = false;
+                    //}
+                    //else if (smode[1] == 0)
+                    //{
+                    //  dataGridView1.Columns[1].Visible = false;
+                    //}
+                    //else if (smode[2] == 0)
+                    //{
+                    //  dataGridView1.Columns[2].Visible = false;
+                    //}
+                    //else if (smode[3] == 0)
+                    //{
+                    //  dataGridView1.Columns[3].Visible = false;
+                    //}
+                    //else if (smode[4] == 0)
+                    //{
+                    //  dataGridView1.Columns[4].Visible = false;
+                    //}
+
+                    //dataGridView2.Rows.Clear();
+                    //dataGridView2.Rows.Add(new TableFiller().FillDataInSumaryTable(_hrData, _param, endTime));
+
+                }
+            }
         }
 
         private void loadData()
@@ -205,7 +354,7 @@ namespace Data_Handling_System
         //to view overall graph
         private void viewGraphToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (_hrData.Count < 1)
+            if (_hrData.Count <= 1)
             {
                 MessageBox.Show("Please select a file first");
             }
@@ -235,15 +384,27 @@ namespace Data_Handling_System
         //to view summary data
         private void viewSummaryDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_hrData.Count < 1)
+            try
+            {
+                SummaryView._hrData = _hrData;
+                new SummaryView(hrData["params"] as Dictionary<string, string>, hrData["endTime"] as string).Show();
+            } catch(Exception ex)
             {
                 MessageBox.Show("Please select a file first");
             }
-            else
-            {
-                SummaryView._hrData = _hrData;
-                new SummaryView(_param, endTime).Show();
-            }
+           
+
+            //if (_hrData.Count < 1)
+            //{
+            //    MessageBox.Show("Please select a file first");
+            //}
+            //else
+            //{
+            //    SummaryView._hrData = _hrData;
+            //    new SummaryView(_param, endTime).Show();
+            //}
+
+
         }
 
         //to change speed unit and return the value in table
@@ -336,6 +497,77 @@ namespace Data_Handling_System
             Application.Restart();
         }
 
+        private void zedGraphControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_RowUnshared(object sender, DataGridViewRowEventArgs e)
+        {
+
+        }
+
+        private Dictionary<string, object> data = new Dictionary<string, object>();
+        List<string> listCadence = new List<string>();
+        List<string> listAltitude = new List<string>();
+        List<string> listHeartRate = new List<string>();
+        List<string> listPower = new List<string>();
+        List<string> listSpeed = new List<string>();
+        List<string> listTime = new List<string>();
+
+        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged != DataGridViewElementStates.Selected) return;
+            int index = Convert.ToInt32(e.Row.Index.ToString());
+
+            string cadence = dataGridView1.Rows[index].Cells[0].Value.ToString();
+            listCadence.Add(cadence);
+
+            //_hrData.Add("cadence", new List());
+            string altitude = dataGridView1.Rows[index].Cells[1].Value.ToString();
+            listAltitude.Add(altitude);
+
+            string heartRate = dataGridView1.Rows[index].Cells[2].Value.ToString();
+            listHeartRate.Add(heartRate);
+
+            string power = dataGridView1.Rows[index].Cells[3].Value.ToString();
+            listPower.Add(power);
+
+            string speed = dataGridView1.Rows[index].Cells[4].Value.ToString();
+            listSpeed.Add(speed);
+
+            string time = dataGridView1.Rows[index].Cells[5].Value.ToString();
+            listTime.Add(time);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            data.Add("cadence", listCadence);
+            data.Add("altitude", listAltitude);
+            data.Add("heartRate", listHeartRate);
+            data.Add("watt", listPower);
+            data.Add("speed", listSpeed);
+            data.Add("time", listTime);
+
+            var endTime = data["time"] as List<string>;
+            int count = endTime.Count();
+            Dictionary<string, string> _param = new Dictionary<string, string>();
+            _param.Add("StartTime", endTime[0]);
+
+
+            SummaryView._hrData = data.ToDictionary(k => k.Key, k => k.Value as List<string>);
+            new SummaryView(_param, hrData["endTime"] as string).Show();
+            //new SummaryView(data as Dictionary<string, string>, hrData["endTime"] as string).Show();
+            //new SummaryView(hrData["params"] as Dictionary<string, string>, hrData["endTime"] as string).Show();
+
+            //dataGridView2.Rows.Clear();
+            //dataGridView2.Rows.Add(new TableFiller().FillDataInSumaryTable(data, endTime[count - 1], _param));
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            data.Clear();
+        }
     }
 }
 

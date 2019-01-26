@@ -39,20 +39,20 @@ namespace Data_Handling_System
             double totalTime = endDate - startDate;
 
 
-            string averageSpeed = Summary.FinDAverageSpeed(_hrData["Speed"]).ToString();
-            string maxSpeed = Summary.FindMaxSpeed(_hrData["Cadence"]).ToString();
+            string averageSpeed = Summary.FinDAverageSpeed(_hrData["speed"]).ToString();
+            string maxSpeed = Summary.FindMaxSpeed(_hrData["cadence"]).ToString();
 
 
             totalDistanceCovered = (Convert.ToDouble(averageSpeed) * totalTime).ToString();
 
-            string averageHeartRate = Summary.FindAverageHeartRate(_hrData["HeartRate"]).ToString();
-            string maximumHeartRate = Summary.FindMaxHeartRate(_hrData["HeartRate"]).ToString();
-            string minHeartRate = Summary.FindMinHeartRate(_hrData["HeartRate"]).ToString();
+            string averageHeartRate = Summary.FindAverageHeartRate(_hrData["heartRate"]).ToString();
+            string maximumHeartRate = Summary.FindMaxHeartRate(_hrData["heartRate"]).ToString();
+            string minHeartRate = Summary.FindMinHeartRate(_hrData["heartRate"]).ToString();
 
-            string averagePower = Summary.FindAveragePower(_hrData["Watt"]).ToString();
-            string maxPower = Summary.FindMaxPower(_hrData["Watt"]).ToString();
+            string averagePower = Summary.FindAveragePower(_hrData["watt"]).ToString();
+            string maxPower = Summary.FindMaxPower(_hrData["watt"]).ToString();
 
-            string averageAltitude = Summary.FindAverageAltitude(_hrData["Altitude"]).ToString();
+            string averageAltitude = Summary.FindAverageAltitude(_hrData["altitude"]).ToString();
 
 
             //labels for summarized data

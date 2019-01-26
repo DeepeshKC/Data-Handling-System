@@ -59,19 +59,13 @@ namespace Data_Handling_System
             var firstTableData = new TableFiller().FillTable(fileOneText, dataGridView1);
             var secondTableData = new TableFiller().FillTable(fileTwoText, dataGridView2);
 
-            dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(firstTableData, firstTableData["params"] as Dictionary<string, string>, firstTableData["endTime"] as string));
-            dataGridView3.Rows.Add(new TableFiller().FillDataInSumaryTable(secondTableData, secondTableData["params"] as Dictionary<string, string>, secondTableData["endTime"] as string));
+            dataGridView3.Rows.Add(new TableFiller().FillDataInSummaryTable(firstTableData, firstTableData["endTime"] as string, firstTableData["params"] as Dictionary<string, string>));
+            dataGridView3.Rows.Add(new TableFiller().FillDataInSummaryTable(secondTableData, secondTableData["endTime"] as string, secondTableData["params"] as Dictionary<string, string>));
         }
 
         private void InitGrid()
         {
-            //try
-            //{
-            //  MessageBox.Show(dataGridView1.SelectedCells[0].Value.ToString());
-            //} catch(Exception ex)
-            //{
-            //  Console.WriteLine(ex.Message);
-            //}
+           
 
             dataGridView1.ColumnCount = 6;
             dataGridView1.Columns[0].Name = "Cadence(RPM)";
