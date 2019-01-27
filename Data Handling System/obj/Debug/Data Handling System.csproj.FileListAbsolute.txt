@@ -24,3 +24,4 @@ F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling Syste
 F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data_Handling_System.IndividualGraph.resources
 F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data_Handling_System.SummaryView.resources
 F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data_Handling_System.FileCompare.resources
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling System\obj\Debug\Data_Handling_System.IntervalDetectionForm.resources

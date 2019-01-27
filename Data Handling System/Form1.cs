@@ -392,20 +392,7 @@ namespace Data_Handling_System
             {
                 MessageBox.Show("Please select a file first");
             }
-           
-
-            //if (_hrData.Count < 1)
-            //{
-            //    MessageBox.Show("Please select a file first");
-            //}
-            //else
-            //{
-            //    SummaryView._hrData = _hrData;
-            //    new SummaryView(_param, endTime).Show();
-            //}
-
-
-        }
+}
 
         //to change speed unit and return the value in table
         private void CalculateSpeed(string type)
@@ -517,46 +504,76 @@ namespace Data_Handling_System
 
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            if (e.StateChanged != DataGridViewElementStates.Selected) return;
-            int index = Convert.ToInt32(e.Row.Index.ToString());
+            try
+            {
+                if (e.StateChanged != DataGridViewElementStates.Selected) return;
+                int index = Convert.ToInt32(e.Row.Index.ToString());
 
-            string cadence = dataGridView1.Rows[index].Cells[0].Value.ToString();
-            listCadence.Add(cadence);
+                string cadence = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                listCadence.Add(cadence);
 
-            //_hrData.Add("cadence", new List());
-            string altitude = dataGridView1.Rows[index].Cells[1].Value.ToString();
-            listAltitude.Add(altitude);
+                string altitude = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                listAltitude.Add(altitude);
 
-            string heartRate = dataGridView1.Rows[index].Cells[2].Value.ToString();
-            listHeartRate.Add(heartRate);
+                string heartRate = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                listHeartRate.Add(heartRate);
 
-            string power = dataGridView1.Rows[index].Cells[3].Value.ToString();
-            listPower.Add(power);
+                string power = dataGridView1.Rows[index].Cells[3].Value.ToString();
+                listPower.Add(power);
 
-            string speed = dataGridView1.Rows[index].Cells[4].Value.ToString();
-            listSpeed.Add(speed);
+                string speed = dataGridView1.Rows[index].Cells[4].Value.ToString();
+                listSpeed.Add(speed);
 
-            string time = dataGridView1.Rows[index].Cells[5].Value.ToString();
-            listTime.Add(time);
+                string time = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                listTime.Add(time);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            data.Add("cadence", listCadence);
-            data.Add("altitude", listAltitude);
-            data.Add("heartRate", listHeartRate);
-            data.Add("watt", listPower);
-            data.Add("speed", listSpeed);
-            data.Add("time", listTime);
+            try
+            {
+                data.Add("cadence", listCadence);
+                data.Add("altitude", listAltitude);
+                data.Add("heartRate", listHeartRate);
+                data.Add("watt", listPower);
+                data.Add("speed", listSpeed);
+                data.Add("time", listTime);
 
-            var endTime = data["time"] as List<string>;
-            int count = endTime.Count();
-            Dictionary<string, string> _param = new Dictionary<string, string>();
-            _param.Add("StartTime", endTime[0]);
+                var endTime = data["time"] as List<string>;
+                int count = endTime.Count();
+                Dictionary<string, string> _param = new Dictionary<string, string>();
+                _param.Add("StartTime", endTime[0]);
+
+                dataGridView2.Rows.Clear();
+                dataGridView2.Rows.Add(new TableFiller().FillDataInSummaryTable(data, endTime[count - 1], _param));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please click on reset button first");
+            }
+
+            //data.Add("cadence", listCadence);
+            //data.Add("altitude", listAltitude);
+            ///data.Add("heartRate", listHeartRate);
+            //data.Add("watt", listPower);
+            //data.Add("speed", listSpeed);
+            ///data.Add("time", listTime);
+
+            //var endTime = data["time"] as List<string>;
+            //int count = endTime.Count();
+            //Dictionary<string, string> _param = new Dictionary<string, string>();
+            //_param.Add("StartTime", endTime[0]);
 
 
-            SummaryView._hrData = data.ToDictionary(k => k.Key, k => k.Value as List<string>);
-            new SummaryView(_param, hrData["endTime"] as string).Show();
+            //SummaryView._hrData = data.ToDictionary(k => k.Key, k => k.Value as List<string>);
+            //new SummaryView(_param, hrData["endTime"] as string).Show();
+
+
             //new SummaryView(data as Dictionary<string, string>, hrData["endTime"] as string).Show();
             //new SummaryView(hrData["params"] as Dictionary<string, string>, hrData["endTime"] as string).Show();
 
@@ -567,6 +584,12 @@ namespace Data_Handling_System
         private void button5_Click(object sender, EventArgs e)
         {
             data.Clear();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var data = _hrData.ToDictionary(k => k.Key, k => k.Value as object);
+            new IntervalDetectionForm(data).Show();
         }
     }
 }
