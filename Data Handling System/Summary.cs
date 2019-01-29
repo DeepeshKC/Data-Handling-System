@@ -40,6 +40,11 @@ namespace Data_Handling_System
         }
 
         //Calculates average speed
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FinDAverageSpeed(List<string> value)
         {
 
@@ -59,6 +64,11 @@ namespace Data_Handling_System
         }
 
         // maximum speed
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FindMaxSpeed(List<string> value)
         {
 
@@ -133,6 +143,11 @@ namespace Data_Handling_System
         }
 
         //Calculates and returns average heart rate
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FindAverageHeartRate(List<string> value)
         {
 
@@ -153,6 +168,11 @@ namespace Data_Handling_System
         }
 
         //Calculates and returns minimum heart rate
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FindMinHeartRate(List<string> value)
         {
 
@@ -164,6 +184,11 @@ namespace Data_Handling_System
         }
 
         //Calculates and returns maximum heart rate
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FindMaxHeartRate(List<string> value)
         {
 
@@ -192,6 +217,11 @@ namespace Data_Handling_System
 
 
         //Calculates Average power
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FindAveragePower(List<string> value)
         {
 
@@ -211,6 +241,11 @@ namespace Data_Handling_System
         }
 
         //Calculating  maximum power
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FindMaxPower(List<string> value)
         {
 
@@ -221,6 +256,11 @@ namespace Data_Handling_System
         }
 
         //Calculating  average altitude
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FindAverageAltitude(List<string> value)
         {
 

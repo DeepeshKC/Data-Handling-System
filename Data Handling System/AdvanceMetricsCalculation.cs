@@ -35,7 +35,6 @@ namespace Data_Handling_System
             }
 
             var result = Summary.FindSum(powerSumList.Select(p => p.ToString()).ToList());
-            //yo milau ta
 
             return result;
         }
