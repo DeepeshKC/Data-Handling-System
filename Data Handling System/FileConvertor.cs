@@ -6,35 +6,36 @@ using System.Threading.Tasks;
 
 namespace Data_Handling_System
 {
-    class FileConvertor
+    public class FileConvertor
     {
 
+        /// <summary>
+        /// split text by header data
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public string[] SplitString(string text) => text.Split(GetParams(), StringSplitOptions.RemoveEmptyEntries);
 
-        public string[] SplitString(string text)
-        {
-            var splitString = GetParams();
+        /// <summary>
+        /// detect line break and return in the form of array
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public string[] SplitStringByEnter(string text) => text.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            var splittedText = text.Split(splitString, StringSplitOptions.RemoveEmptyEntries);
+        /// <summary>
+        /// detects space in a text and return in the form of array
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public string[] SplitStringBySpace(string text) => string.Join(" ", text.Split().Where(x => x != "")).Split(' ');
 
-            return splittedText;
-        }
-
-        public string[] SplitStringByEnter(string text)
-        {
-            return text.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-        }
-
-        public string[] SplitStringBySpace(string text)
-        {
-            var formattedText = string.Join(" ", text.Split().Where(x => x != ""));
-            return formattedText.Split(' ');
-        }
-
-        public string[] GetParams()
-        {
-            return new string[] { "[Params]", "[Note]", "[IntTimes]", "[IntNotes]",
+        /// <summary>
+        /// return a header data
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetParams() => new string[] { "[Params]", "[Note]", "[IntTimes]", "[IntNotes]",
                 "[ExtraData]", "[LapNames]", "[Summary-123]",
                 "[Summary-TH]", "[HRZones]", "[SwapTimes]", "[Trip]", "[HRData]"};
-        }
     }
 }

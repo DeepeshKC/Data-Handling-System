@@ -1,0 +1,18 @@
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Data Handling SystemTests.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Data Handling SystemTests.pdb
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Data Handling System.exe
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\ZedGraph.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Data Handling System.pdb
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Data Handling System.exe.config
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\obj\Debug\Data Handling SystemTests.csprojAssemblyReference.cache
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\obj\Debug\Data Handling SystemTests.csproj.CoreCompileInputs.cache
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\obj\Debug\Data Handling SystemTests.csproj.CopyComplete
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\obj\Debug\Data Handling SystemTests.dll
+F:\Study\The British College\Second Semester Assignment\ASEB\Data Handling System\Data Handling SystemTests\obj\Debug\Data Handling SystemTests.pdb

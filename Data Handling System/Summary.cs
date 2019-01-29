@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data_Handling_System
 {
-    class Summary
+    public class Summary
     {
         /// <summary>
         /// converts date into corrected format
@@ -95,6 +95,41 @@ namespace Data_Handling_System
         {
             double multiplier = Math.Pow(10, Convert.ToDouble(places));
             return Math.Ceiling(input * multiplier) / multiplier;
+        }
+
+
+        /// <summary>
+        /// finds the maximum value from array
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int FindMax(List<string> value)
+        {
+            int maxValue = 0;
+
+            for (int i = 0; i < value.Count; i++)
+            {
+                maxValue = (maxValue > Convert.ToInt16(value.ElementAt(i))) ? maxValue : Convert.ToInt16(value.ElementAt(i));
+            }
+
+            return maxValue;
+        }
+
+        /// <summary>
+        /// finds the minimum value from array
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int FindMin(List<string> value)
+        {
+            int minValue = Convert.ToInt16(value.ElementAt(0));
+
+            for (int i = 0; i < value.Count; i++)
+            {
+                minValue = (minValue > Convert.ToInt16(value.ElementAt(i))) ? Convert.ToInt16(value.ElementAt(i)) : minValue;
+            }
+
+            return minValue;
         }
 
         //Calculates and returns average heart rate
