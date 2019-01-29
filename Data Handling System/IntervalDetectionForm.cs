@@ -25,11 +25,7 @@ namespace Data_Handling_System
 
             //dataGridView2.Rows.Add(new TableFiller().FillDataInSumaryTable(hrData, hrData["endTime"] as string, hrData["params"] as Dictionary<string, string>));
         }
-
-        private void IntervalDetectionForm_Load(object sender, EventArgs e)
-        {
-            InitGrid();
-        }
+        
 
         private void InitGrid()
         {
@@ -60,5 +56,11 @@ namespace Data_Handling_System
             var data = new TableFiller().FillDataInSummaryTable(b, "19:12:15", null);
             dataGridView2.Rows.Add(data);
         }
+
+        private void IntervalDetectionForm_Load_1(object sender, EventArgs e)
+        {
+            InitGrid();
+        }
+
     }
-    }
+}

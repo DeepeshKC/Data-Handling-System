@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace Data_Handling_System
 {
+ 
     public partial class Form1 : Form
     {
         private Dictionary<string, List<string>> _hrData = new Dictionary<string, List<string>>();
@@ -549,8 +550,8 @@ namespace Data_Handling_System
                 Dictionary<string, string> _param = new Dictionary<string, string>();
                 _param.Add("StartTime", endTime[0]);
 
-                dataGridView2.Rows.Clear();
-                dataGridView2.Rows.Add(new TableFiller().FillDataInSummaryTable(data, endTime[count - 1], _param));
+                //dataGridView2.Rows.Clear();
+                //dataGridView2.Rows.Add(new TableFiller().FillDataInSummaryTable(data, endTime[count - 1], _param));
             }
             catch (Exception ex)
             {
@@ -590,6 +591,95 @@ namespace Data_Handling_System
         {
             var data = _hrData.ToDictionary(k => k.Key, k => k.Value as object);
             new IntervalDetectionForm(data).Show();
+        }
+
+        Dictionary<string, object> list = new Dictionary<string, object>();
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string val = textBox1.Text;
+            int value;
+            if (int.TryParse(val, out value))
+            {
+                int count = 0;
+                try
+                {
+                    count = ((List<string>)data["speed"]).Count;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Please select a row first");
+                }
+
+                int portion = count / Convert.ToInt32(val);
+
+                var cadenceData = data["cadence"] as List<string>;
+                var altitudeData = data["altitude"] as List<string>;
+                var heartRateData = data["heartRate"] as List<string>;
+                var wattData = data["watt"] as List<string>;
+                var speedData = data["speed"] as List<string>;
+
+                var newCadenceData = new List<string>();
+                var newAltitudeData = new List<string>();
+                var newHeartRateData = new List<string>();
+                var newWattData = new List<string>();
+                var newSpeedData = new List<string>();
+
+                int num = 0;
+                int portionNumber = 0;
+
+                for (int i = 0; i < count; i++)
+                {
+                    num++;
+                    newCadenceData.Add(cadenceData[i]);
+                    newAltitudeData.Add(altitudeData[i]);
+                    newHeartRateData.Add(heartRateData[i]);
+                    newWattData.Add(wattData[i]);
+                    newSpeedData.Add(speedData[i]);
+
+                    if (num == portion)
+                    {
+                        num = 0;
+                        portionNumber++;
+
+                        var listData = new Dictionary<string, List<string>>();
+                        listData.Add("cadence", newCadenceData);
+                        listData.Add("altitude", newAltitudeData);
+                        listData.Add("heartRate", newHeartRateData);
+                        listData.Add("watt", newWattData);
+                        listData.Add("speed", newSpeedData);
+
+                        list.Add("data" + portionNumber, listData);
+
+                        newCadenceData = new List<string>();
+                        newAltitudeData = new List<string>();
+                        newHeartRateData = new List<string>();
+                        newWattData = new List<string>();
+                        newSpeedData = new List<string>();
+                    }
+
+                }
+
+                comboBox1.Items.Clear();
+                for (int i = 0; i < list.Count; i++)
+                {
+                    comboBox1.Items.Add("Portion " + (i + 1));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid number between 0 - 9");
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBox1.SelectedIndex + 1;
+
+            var a = list["data" + selectedIndex] as Dictionary<string, List<string>>;
+            var b = a.ToDictionary(k => k.Key, k => k.Value as object);
+
+
+            var data = new TableFiller().FillDataInSummaryTable(b, "19:12:15", null);
         }
     }
 }

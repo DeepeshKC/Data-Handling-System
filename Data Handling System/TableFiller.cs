@@ -9,12 +9,21 @@ namespace Data_Handling_System
 {
     class TableFiller
     {
-        
-        public string[] FillDataInSummaryTable(Dictionary<string, object>_hrData, string endTime, Dictionary<string,string>_param = null)
 
+        public string[] FillDataInSummaryTable(Dictionary<string, object> _hrData, string endTime, Dictionary<string, string> _param = null)
         {
-            double startDate = TimeSpan.Parse(_param["StartTime"]).TotalSeconds;
-            double endDate = TimeSpan.Parse(endTime).TotalSeconds;
+            double startDate = 0;
+
+            try
+            {
+                startDate = TimeSpan.Parse(_param["StartTime"]).TotalSeconds;
+            }
+            catch (Exception e)
+            {
+                startDate = 0;
+            }
+
+            double endDate = !string.IsNullOrEmpty(endTime) ? TimeSpan.Parse(endTime).TotalSeconds : 0;
             double totalTime = endDate - startDate;
 
             string averageSpeed = Summary.FinDAverageSpeed(_hrData["speed"] as List<string>).ToString();
@@ -29,9 +38,9 @@ namespace Data_Handling_System
             string maxPower = Summary.FindMaxPower(_hrData["watt"] as List<string>).ToString();
 
             string averageAltitude = Summary.FindAverageAltitude(_hrData["altitude"] as List<string>).ToString();
-  
+            string maximumAltitude = Summary.FindAverageAltitude(_hrData["altitude"] as List<string>).ToString();
 
-            string[] summarydata = new string[] { totalDistanceCovered, averageSpeed, maxSpeed, averageHeartRate, maximumHeartRate, minHeartRate, averagePower, maxPower, averageAltitude };
+            string[] summarydata = new string[] { totalDistanceCovered, averageSpeed, maxSpeed, averageHeartRate, maximumHeartRate, minHeartRate, averagePower, maxPower, averageAltitude, maximumAltitude };
 
             return summarydata;
         }

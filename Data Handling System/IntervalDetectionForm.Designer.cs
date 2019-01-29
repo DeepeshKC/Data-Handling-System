@@ -70,6 +70,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "IntervalDetectionForm";
             this.Text = "IntervalDetectionForm";
+            this.Load += new System.EventHandler(this.IntervalDetectionForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
