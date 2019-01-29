@@ -71,7 +71,34 @@ namespace Data_Handling_System
                     hrData = new TableFiller().FillTable(text, dataGridView1);
                     _hrData = hrData.ToDictionary(k => k.Key, k => k.Value as List<string>);
 
+
+                    var metricsCalculation = new AdvanceMetricsCalculation();
+
+                    //advance metrics calculation
+                    double np = metricsCalculation.CalculateNormalizedPower(hrData);
+                    label3.Text = "Normalized power = " + Summary.RoundUp(np, 2);
+
+                    double ftp = metricsCalculation.CalculateFunctionalThresholdPower(hrData);
+                    label4.Text = "Training Stress Score = " + Summary.RoundUp(ftp, 2);
+
+                    double ifa = metricsCalculation.CalculateIntensityFactor(hrData);
+                    label5.Text = "Intensity Factor = " + Summary.RoundUp(ifa, 2);
+
+                    double pb = metricsCalculation.CalculatePowerBalance(hrData);
+                    label6.Text = "Power balance = " + Summary.RoundUp(pb, 2);
+
                     var param = hrData["params"] as Dictionary<string, string>;
+
+                    //header file
+                    lblStartTime.Text = lblStartTime.Text + "= " + param["StartTime"];
+                    lblInterval.Text = lblInterval.Text + "= " + param["Interval"];
+                    lblMonitor.Text = lblMonitor.Text + "= " + param["Monitor"];
+                    lblSMode.Text = lblSMode.Text + "= " + param["SMode"];
+                    lblDate.Text = lblDate.Text + "= " + Summary.ConvertToDate(param["Date"]);
+                    lblLength.Text = lblLength.Text + "= " + param["Length"];
+                    lblWeight.Text = lblWeight.Text + "= " + param["Weight"];
+
+
                     var sMode = param["SMode"];
                     for (int i = 0; i < sMode.Length; i++)
                     {
@@ -680,6 +707,12 @@ namespace Data_Handling_System
 
 
             var data = new TableFiller().FillDataInSummaryTable(b, "19:12:15", null);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            new FileCompare().Show();
+
         }
     }
 }
